@@ -1,0 +1,37 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Rock+Salt);
+
+header {
+  background-color: black;
+  padding: 15px;
+  width: 100%;
+  position: fixed;
+}
+
+#main-header {
+  text-align: center;
+  font-family: 'Rock Salt', cursive;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.user-header {
+  display: inline;
+}
+
+#user-header {
+  text-align: right;
+  margin-right: 20px;
+}
+
+#new-user {
+  padding-top: 150px;
+}
+
+#search-bar {
+  float: left;
+  display: inline;
+}

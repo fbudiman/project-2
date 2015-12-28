@@ -8,6 +8,54 @@
 </head>
 <body>
 
+<header>
+  <h1 id="main-header"><%= link_to "RecipeIt", users_path %></h1>
+
+  <div id="search-bar">
+    <%= form_tag('/heroes', method:"get") do %>
+    <strong>Search By</strong>
+    <%= select_tag "search", options_for_select(["Restaurant", "Menu Item"]) %>
+    <%=text_field_tag :query %>
+    <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+
+  <div id="user-header">
+
+    <% flash.each do |key,value| %>
+        <div class="<%= key %>" > <%= value %></div>
+    <% end %>
+
+    <% if !current_user %>
+
+      <%= form_for @user, url: create_session_path do |f| %>
+
+
+      <div class="user-header">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      <div class="user-header">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+        <%= f.submit "Login" %>
+
+      <% end %>
+
+      <div class="user-header"><%= link_to "Create An Account", new_user_path %></div>
+
+    <% else %>
+
+      <div class="user-header"><%= link_to "Logout", destroy_session_path %></div>
+
+    <% end %>
+
+  </div>
+
+</header>
+
 <%= yield %>
 
 </body>
