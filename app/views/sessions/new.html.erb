@@ -1,0 +1,20 @@
+FORM
+
+<%= form_for @user, url: create_session_path do |f| %>
+
+<% flash.each do |key,value| %>
+  <div class="<%= key %>" > <%= value %> </div>
+<% end %>
+
+
+<div>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+</div>
+<div>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+  <%= f.submit %>
+
+<% end %>
