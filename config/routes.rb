@@ -6,14 +6,23 @@ Rails.application.routes.draw do
 
   root 'users#index', as: :users
 
+  patch 'users/:id' => 'users#update'
+
   get '/users' => 'users#index'
   get 'users/new' => 'users#new', as: :new_user
+  get 'users/:id' => 'users#show', as: :user
+  get 'users/:id/edit' => 'users#edit', as: :edit_user
   get 'sessions/new' => 'sessions#new', as: :new_session
   get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
   get 'targets/' => 'targets#index', as: :targets
+  get 'restaurants/new' => 'restaurants#new', as: :new_restaurant
+  get 'restaurants/' => 'restaurants#index', as: :restaurants
 
-  post '/' => 'users#create'
   post 'sessions/new' => 'sessions#create', as: :create_session
+  post '/' => 'users#create'
+  post '/' => 'restaurants#create'
+
+  # delete "users/:id" => "users#destroy"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

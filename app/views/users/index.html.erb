@@ -41,3 +41,7 @@
 <p>HELLO WORLD</p>
 
 <p>HELLO WORLD</p>
+
+<% if current_user %>
+<%= link_to "Add New Restaurant", new_restaurant_path %>
+<% end %>

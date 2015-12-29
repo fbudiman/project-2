@@ -48,8 +48,8 @@
 
     <% else %>
 
-      <div class="user-header"><%= link_to "Logout", destroy_session_path %></div>
-
+        <div class="user-header"><%= link_to "Your Account", user_path(current_user) %></div> |
+        <div class="user-header"><%= link_to "Logout", destroy_session_path %></div>
     <% end %>
 
   </div>

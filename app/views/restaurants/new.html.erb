@@ -1,0 +1,24 @@
+<p>RESTAURANTS</p>
+<p>RESTAURANTS</p>
+<p>RESTAURANTS</p>
+<p>RESTAURANTS</p>
+<p>RESTAURANTS</p>
+<p>RESTAURANTS</p>
+
+  ADD A NEW RESTAURANT:
+
+  <%= form_for @restaurant do |f| %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+
+    <%= f.submit %>
+
+  <% end %>

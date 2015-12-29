@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20151222222047) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "name"
-    t.string   "profile_pic_url", default: "assets/images/default_image.png"
+    t.string   "profile_pic_url"
     t.datetime "created_at",                                                  null: false
     t.datetime "updated_at",                                                  null: false
   end
