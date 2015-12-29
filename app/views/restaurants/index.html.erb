@@ -23,3 +23,6 @@
 <p>RESTAURANTS</p>
 <p>RESTAURANTS</p>
 <p>RESTAURANTS</p>
+<% @restaurants.each do |restaurant| %>
+<%= restaurant.name %>, <%= restaurant.location %>
+<% end %>

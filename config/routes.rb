@@ -17,10 +17,11 @@ Rails.application.routes.draw do
   get 'targets/' => 'targets#index', as: :targets
   get 'restaurants/new' => 'restaurants#new', as: :new_restaurant
   get 'restaurants/' => 'restaurants#index', as: :restaurants
+  get 'restaurants/:id' => 'restaurants#show', as: :restaurant
 
   post 'sessions/new' => 'sessions#create', as: :create_session
   post '/' => 'users#create'
-  post '/' => 'restaurants#create'
+  post 'restaurants/' => 'restaurants#create'
 
   # delete "users/:id" => "users#destroy"
 
