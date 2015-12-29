@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaurant = Restaurant.new
     @restaurants = Restaurant.all
+    @user = User.new
   end
 
   def show
@@ -19,6 +19,11 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+
+    if !current_user
+      flash[:error] = "You must be signed in to add a restaurant."
+      redirect_to restaurants_path
+    end
   end
 
   def create

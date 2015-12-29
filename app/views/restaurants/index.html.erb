@@ -23,6 +23,14 @@
 <p>RESTAURANTS</p>
 <p>RESTAURANTS</p>
 <p>RESTAURANTS</p>
-<% @restaurants.each do |restaurant| %>
-<%= restaurant.name %>, <%= restaurant.location %>
+
+<% if current_user %>
+<%= link_to "Add New Restaurant", new_restaurant_path %>
 <% end %>
+
+<div>
+  <% @restaurants.each do |restaurant| %>
+  <%= restaurant.name %>, <%= restaurant.location %>
+  <% end %>
+</div>
+
