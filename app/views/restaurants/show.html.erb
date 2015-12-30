@@ -20,6 +20,6 @@ show.html.erb
 <%= link_to "Add a New Recipe", new_recipe_path %>
 
   <% @recipes.each do |recipe| %>
-  <div> <%= recipe.title %> </div>
+  <div> <%= link_to recipe.title, recipe_path(recipe) %> </div>
   <div> <%= recipe.body %> </div>
   <% end %>
