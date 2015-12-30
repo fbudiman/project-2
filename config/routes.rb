@@ -12,16 +12,24 @@ Rails.application.routes.draw do
   get 'users/new' => 'users#new', as: :new_user
   get 'users/:id' => 'users#show', as: :user
   get 'users/:id/edit' => 'users#edit', as: :edit_user
+
   get 'sessions/new' => 'sessions#new', as: :new_session
   get 'sessions/destroy' => 'sessions#destroy', as: :destroy_session
+
   get 'targets/' => 'targets#index', as: :targets
+
   get 'restaurants/new' => 'restaurants#new', as: :new_restaurant
   get 'restaurants/' => 'restaurants#index', as: :restaurants
   get 'restaurants/:id' => 'restaurants#show', as: :restaurant
 
+  get 'recipes/' => 'recipes#index', as: :recipes
+  get 'recipes/new' => 'recipes#new', as: :new_recipe
+  get 'recipes/:id' => 'recipes#show', as: :recipe
+
   post 'sessions/new' => 'sessions#create', as: :create_session
   post '/' => 'users#create'
   post 'restaurants/' => 'restaurants#create'
+  post 'recipes/' => 'recipes#create'
 
   # delete "users/:id" => "users#destroy"
 

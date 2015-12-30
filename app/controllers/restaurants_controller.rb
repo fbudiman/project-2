@@ -8,6 +8,8 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @restaurants = Restaurant.all
+    @user = User.new
+    @recipes = Recipe.where(:restaurant_id => @restaurant.id)
   end
 
   def edit

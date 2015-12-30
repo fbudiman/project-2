@@ -30,7 +30,7 @@
 
 <div>
   <% @restaurants.each do |restaurant| %>
-  <%= restaurant.name %>, <%= restaurant.location %>
+  <%= link_to restaurant.name, restaurant_path(restaurant) %>, <%= restaurant.location %>
   <% end %>
 </div>
 
