@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   post 'restaurants/' => 'restaurants#create'
   post 'recipes/' => 'recipes#create'
 
+  delete 'recipes/:id' => 'recipes#destroy'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
