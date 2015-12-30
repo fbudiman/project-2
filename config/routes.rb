@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'users#index', as: :users
 
   patch 'users/:id' => 'users#update'
+  patch 'recipes/:id' => 'recipes#update'
 
   get '/users' => 'users#index'
   get 'users/new' => 'users#new', as: :new_user
@@ -25,13 +26,12 @@ Rails.application.routes.draw do
   get 'recipes/' => 'recipes#index', as: :recipes
   get 'recipes/new' => 'recipes#new', as: :new_recipe
   get 'recipes/:id' => 'recipes#show', as: :recipe
+  get 'recipes/:id/edit' => 'recipes#edit', as: :edit_recipe
 
   post 'sessions/new' => 'sessions#create', as: :create_session
   post '/' => 'users#create'
   post 'restaurants/' => 'restaurants#create'
   post 'recipes/' => 'recipes#create'
-
-  # delete "users/:id" => "users#destroy"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

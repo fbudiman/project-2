@@ -10,9 +10,22 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
+
+    if !current_user
+      flash[:error] = "You must be signed in to edit a recipe."
+      redirect_to recipe_path(@recipe)
+    end
   end
 
   def update
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.update_attributes(recipe_params)
+      redirect_to recipe_path(@recipe)
+    else
+      render :edit
+    end
   end
 
   def new

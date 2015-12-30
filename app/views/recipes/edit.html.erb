@@ -1,0 +1,32 @@
+<p>RECIPES</p>
+<p>RECIPES</p>
+<p>RECIPES</p>
+<p>RECIPES</p>
+<p>RECIPES</p>
+<p>RECIPES</p>
+<p>RECIPES</p>
+<p>RECIPES</p>
+<p>RECIPES</p>
+
+<div id="new-user">
+  EDIT RECIPE:
+
+  <%= form_for @recipe do |f| %>
+
+ <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body, "Recipe Ingredients & Directions" %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.label :restaurant_id %>
+    <%= f.text_field :restaurant_id %>
+  </div>
+
+    <%= f.submit %>
+
+  <% end %>
+</div>
