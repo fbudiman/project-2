@@ -21,5 +21,4 @@ show.html.erb
 
   <% @recipes.each do |recipe| %>
   <div> <%= link_to recipe.title, recipe_path(recipe) %> </div>
-  <div> <%= recipe.body %> </div>
   <% end %>

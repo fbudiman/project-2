@@ -14,7 +14,7 @@
   <div id="search-bar">
     <%= form_tag('/heroes', method:"get") do %>
     <strong>Search By</strong>
-    <%= select_tag "search", options_for_select(["Restaurant", "Menu Item"]) %>
+    <%= select_tag "search", options_for_select(["Restaurant", "Recipe"]) %>
     <%=text_field_tag :query %>
     <%= submit_tag "Search" %>
     <% end %>
@@ -23,9 +23,11 @@
 
   <div id="user-header">
 
+    <span id="alert">
     <% flash.each do |key,value| %>
         <div class="<%= key %>" > <%= value %></div>
     <% end %>
+    </span>
 
     <% if !current_user %>
 
