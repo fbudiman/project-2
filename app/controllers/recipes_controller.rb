@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @restaurants = Restaurant.all
 
     if !current_user
       flash[:error] = "You must be signed in to add a recipe."
@@ -65,3 +66,14 @@ class RecipesController < ApplicationController
   end
 
 end
+
+# '<option value="<% restaurant.id %>"><%= restaurant.name %></option>') %>
+# <%= select_tag(:city_id, options_for_select(...)) %>
+
+# <%= options_for_select([['Lisbon', 1], ['Madrid', 2]], 2) %>
+
+# <%= select_tag(:city_id, '<option value="1">Lisbon</option>...') %>
+
+#  <%= select_tag(:city_id, '<option value="1">Lisbon</option>...') %>
+
+# # options_for_select([[restaurant.name, restaurant.id]])) %>
