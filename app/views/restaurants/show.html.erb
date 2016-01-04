@@ -17,7 +17,6 @@ show.html.erb
 
 <%= @restaurant.name %>
 <br>
-<%= link_to "Add a New Recipe", new_recipe_path %>
 
   <% @recipes.each do |recipe| %>
   <div> <%= link_to recipe.title, recipe_path(recipe) %> </div>
@@ -26,3 +25,4 @@ show.html.erb
 <div>
 <%= link_to "Back to Restaurant List", restaurants_path %>
 </div>
+<%= link_to "Add a New Recipe", new_recipe_path %>

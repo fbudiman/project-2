@@ -28,9 +28,9 @@
 <%= link_to "Add New Restaurant", new_restaurant_path %>
 <% end %>
 
-<div>
   <% @restaurants.each do |restaurant| %>
+<div>
   <%= link_to restaurant.name, restaurant_path(restaurant) %>, <%= restaurant.location %>
-  <% end %>
 </div>
+  <% end %>
 
