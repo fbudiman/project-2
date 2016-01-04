@@ -22,3 +22,7 @@ show.html.erb
   <% @recipes.each do |recipe| %>
   <div> <%= link_to recipe.title, recipe_path(recipe) %> </div>
   <% end %>
+
+<div>
+<%= link_to "Back to Restaurant List", restaurants_path %>
+</div>
