@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = "You have created an account."
-      redirect_to user_path(@user)
+      redirect_to users_path
     else
       flash[:error] = "Your account could not be created. Please try again."
       redirect_to new_user_path
