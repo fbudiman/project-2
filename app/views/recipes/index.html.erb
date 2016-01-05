@@ -1,1 +1,21 @@
-index.html.erb
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+<p>RECIPE</p>
+
+<% @recipes.each do |recipe| %>
+<div>
+<%= link_to recipe.title, recipe_path(recipe) %>, <%= recipe.restaurant.name %>
+</div>
+<% end %>
