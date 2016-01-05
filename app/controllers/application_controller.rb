@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
+  protect_from_forgery with: :null_session
 
 protected
   def current_user
@@ -13,5 +14,4 @@ protected
     end
   end
 
-  # protect_from_forgery with: :exception
 end

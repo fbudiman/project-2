@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 
+  namespace :api do
+    resources :recipes, only: [:index, :show]
+  end
+
   root 'users#index', as: :users
 
   patch 'users/:id' => 'users#update'
