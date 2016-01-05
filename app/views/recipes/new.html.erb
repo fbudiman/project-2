@@ -24,6 +24,11 @@
     <%= f.label :restaurant_id, "Restaurant" %>
     <%= f.select(:restaurant_id, options_for_select(@restaurants.collect{ |restaurant| [restaurant.name, restaurant.id] })) %>
   </div>
+  <div>
+    <%= f.hidden_field :user_id, :value => @user_id %>
+  </div>
 
     <%= f.submit %>
 <% end %>
+
+
