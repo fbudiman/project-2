@@ -36,12 +36,14 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @restaurants = Restaurant.all
-    @user_id = current_user.id
 
     if !current_user
       flash[:error] = "You must be signed in to add a recipe."
       redirect_to recipes_path
+    else
+      @user_id = current_user.id
     end
+
   end
 
   def create
