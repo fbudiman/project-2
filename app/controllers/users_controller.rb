@@ -8,6 +8,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
+
+    if @user.id != current_user.id
+      flash[:error] = "You are not authorized to view this user's private page."
+      render :index
+    end
   end
 
   def edit
