@@ -17,6 +17,9 @@ class RecipesController < ApplicationController
     if !current_user
       flash[:error] = "You must be signed in to edit a recipe."
       redirect_to recipe_path(@recipe)
+    elsif current_user.id != @recipe.user_id
+      flash[:error] = "You are not authorized to edit other users' recipes."
+      redirect_to recipe_path(@recipe)
     end
   end
 
