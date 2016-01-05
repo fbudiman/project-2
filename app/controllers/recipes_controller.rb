@@ -3,6 +3,19 @@ class RecipesController < ApplicationController
   def index
     @user = User.new
     @recipes = Recipe.all
+
+    if params[:query]
+        search_field = params[:search].to_sym
+        query = params[:query]
+        recipe_list = Recipe.all
+        @recipes = []
+        recipe_list.each do |recipe|
+          if recipe[search_field].downcase.include? query.downcase
+            @recipes << recipe
+          end
+        end
+        return @recipes
+    end
   end
 
   def show

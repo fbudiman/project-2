@@ -11,11 +11,15 @@
 <header>
   <h1 id="main-header"><%= link_to "RecipeIt", users_path %></h1>
 
+
+
+
+
   <div id="search-bar">
-    <%= form_tag('/users', method:"get") do %>
+    <%= form_tag('/recipes', method:"get") do %>
     <strong>Search By</strong>
-    <%= select_tag "search", options_for_select(["Restaurant", "Recipe"]) %>
-    <%=text_field_tag :query %>
+    <%= select_tag "search", options_for_select([["Restaurant", "name"], ["Recipe", "title"]]) %>
+    <%= text_field_tag :query %>
     <%= submit_tag "Search" %>
     <% end %>
   </div>
