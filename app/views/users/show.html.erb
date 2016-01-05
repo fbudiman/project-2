@@ -1,25 +1,41 @@
+
+
 <p>NAME: <%= @user.name %></p>
 <p>EMAIL: <%= @user.email %></p>
+<p># OF RECIPES: <%= @user.recipes.length %>
+<% @user.recipes.each do |recipe| %> (<%= recipe.title %>)</p>
+<% end %>
 <p>PROFILE PIC:
 <% if @user.profile_pic_url != "" %>
 <%= image_tag @user.profile_pic_url %></p>
 <% else %> <%= image_tag ("default_image.png") %>
 <% end %>
 
+
+
 <p>NAME: <%= @user.name %></p>
 <p>EMAIL: <%= @user.email %></p>
+<p># OF RECIPES: <%= @user.recipes.length %>
+<% @user.recipes.each do |recipe| %> (<%= recipe.title %>)</p>
+<% end %>
 <p>PROFILE PIC:
 <% if @user.profile_pic_url != "" %>
 <%= image_tag @user.profile_pic_url %></p>
 <% else %> <%= image_tag ("default_image.png") %>
 <% end %>
 
+
 <p>NAME: <%= @user.name %></p>
 <p>EMAIL: <%= @user.email %></p>
+<p># OF RECIPES: <%= @user.recipes.length %>
+<% @user.recipes.each do |recipe| %> (<%= recipe.title %>)</p>
+<% end %>
 <p>PROFILE PIC:
 <% if @user.profile_pic_url != "" %>
 <%= image_tag @user.profile_pic_url %></p>
 <% else %> <%= image_tag ("default_image.png") %>
 <% end %>
+
+
 
 <%= link_to "Edit User Info", edit_user_path %>
