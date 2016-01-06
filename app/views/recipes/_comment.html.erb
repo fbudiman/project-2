@@ -1,7 +1,6 @@
 <div class="comment">
   <i><%=h comment.user.name %> says:</i><br />
   <%= simple_format h(comment.comment) %>
-  <%= link_to 'Delete Comment', comment_path,
-    :confirm => 'Are you sure?',
+  <%= link_to 'Delete Comment', [comment, @recipe],
     :method => :delete if current_user %>
 </div>

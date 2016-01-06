@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   post 'comments/' => 'comments#create'
 
   delete 'recipes/:id' => 'recipes#destroy'
-  delete 'comments/:id' => 'comments#destroy', as: :comment
+  delete 'comments/:id' => 'comments#destroy', as: :comment_recipe
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
