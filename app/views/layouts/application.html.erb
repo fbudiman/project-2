@@ -31,7 +31,6 @@
 <% if !current_user %>
 
   <div id="login-box" class="login-popup">
-    <a href="#" class="close"><img src="close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
       <%= form_for @user, url: create_session_path do |f| %>
 
       <div class="user-header">
