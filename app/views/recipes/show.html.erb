@@ -25,13 +25,21 @@
 
 <br>
 <br>
+<% if current_user %>
 <br>
 <%= form_for @comment do |f| %>
 <div>
 <%= f.label :comment %>
 <%= f.text_area :comment %>
 </div>
+<div>
+<%= f.hidden_field :recipe_id, :value => @recipe.id %>
+</div>
+<div>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+</div>
 <%= f.submit %>
+<% end %>
 <% end %>
 
 <br>
@@ -39,3 +47,7 @@
 <br>
 <div><%= link_to "Back to Restaurant", restaurant_path(@recipe.restaurant_id) %></div>
 <div><%= link_to "Recipes List", recipes_path %></div>
+<br>
+<br>
+
+<%= render :partial => 'comment', :collection => @recipe.comments %>

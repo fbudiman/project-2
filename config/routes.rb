@@ -38,8 +38,10 @@ Rails.application.routes.draw do
   post '/' => 'users#create'
   post 'restaurants/' => 'restaurants#create'
   post 'recipes/' => 'recipes#create'
+  post 'comments/' => 'comments#create'
 
   delete 'recipes/:id' => 'recipes#destroy'
+  delete 'comments/:id' => 'comments#destroy', as: :comment
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
