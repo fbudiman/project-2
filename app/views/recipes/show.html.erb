@@ -17,6 +17,10 @@
 <div><%= @recipe.title %></div>
 <div><%= @recipe.body %></div>
 
+<div>
+<%= pluralize(@recipe.likes.count, "like") %>
+<%= button_to "Like", like_recipe_path, method: :post %>
+</div>
 
 <% if current_user %>
   <div><%= link_to "Edit Recipe", edit_recipe_path %></div>
@@ -49,6 +53,6 @@
 <div><%= link_to "Recipes List", recipes_path %></div>
 <br>
 <br>
-<%= @recipe.comments.length %> COMMENTS:
+<%= pluralize(@recipe.comments.length, "Comment") %>:
 
 <%= render :partial => 'comment', :collection => @recipe.comments %>
