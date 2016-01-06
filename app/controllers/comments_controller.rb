@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @comment = Comment.find(params[:id])
 
     if current_user.id == @comment.user_id
