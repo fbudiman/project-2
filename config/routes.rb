@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get 'recipes/:id' => 'recipes#show', as: :recipe
   get 'recipes/:id/edit' => 'recipes#edit', as: :edit_recipe
 
+  get 'comments/' => 'comments#index', as: :comments
+
   post 'sessions/new' => 'sessions#create', as: :create_session
   post '/' => 'users#create'
   post 'restaurants/' => 'restaurants#create'
