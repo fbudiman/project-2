@@ -22,7 +22,7 @@
   </div>
   <div>
     <%= f.label :restaurant_id, "Restaurant" %>
-    <%= f.select(:restaurant_id, options_for_select(@restaurants.collect{ |restaurant| [restaurant.name, restaurant.id] })) %>
+    <%= f.select(:restaurant_id, options_for_select(@restaurants.collect { |restaurant| [restaurant.name, restaurant.id] }.sort)) %>
   </div>
   <div>
     <%= f.hidden_field :user_id, :value => @user_id %>
