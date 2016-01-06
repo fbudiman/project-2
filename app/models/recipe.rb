@@ -4,12 +4,4 @@ class Recipe < ActiveRecord::Base
   has_many :comments
   has_many :likes
 
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search}%")
-    else
-      scoped
-    end
-  end
-
 end

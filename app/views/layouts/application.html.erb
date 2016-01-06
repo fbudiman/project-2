@@ -18,7 +18,7 @@
   <div id="search-bar">
     <%= form_tag('/recipes', method:"get") do %>
     <strong>Search By</strong>
-    <%= select_tag "search", options_for_select([["Restaurant", "name"], ["Recipe", "title"]]) %>
+    <%= select_tag "search", options_for_select([["Restaurant", "restaurant.name"], ["Recipe", "title"]]) %>
     <%= text_field_tag :query %>
     <%= submit_tag "Search" %>
     <% end %>

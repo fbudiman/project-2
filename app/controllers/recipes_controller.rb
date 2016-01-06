@@ -5,17 +5,28 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
 
     if params[:query]
-        search_field = params[:search].to_sym
-        query = params[:query]
-        recipe_list = Recipe.all
-        @recipes = []
-        recipe_list.each do |recipe|
+
+      query = params[:query]
+      recipe_list = Recipe.all
+      @recipes = []
+
+      recipe_list.each do |recipe|
+        if params[:search] == "title"
+          search_field = params[:search].to_sym
           if recipe[search_field].downcase.include? query.downcase
             @recipes << recipe
           end
+        else
+          search_field_2 = params[:search]
+          if recipe.search_field_2.downcase.include? query.downcase
+            @recipes << recipe
+          end
         end
-        return @recipes
+      end
+
+      return @recipes
     end
+
   end
 
   def show
