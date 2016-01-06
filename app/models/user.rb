@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :recipes
-  has_many :likes
-  has_many :comments
+  has_many :recipes, :dependent => :destroy
+  has_many :likes, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   has_secure_password
 

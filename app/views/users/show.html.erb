@@ -38,4 +38,5 @@
 
 
 
-<%= link_to "Edit User Info", edit_user_path %>
+<div><%= link_to "Edit User Info", edit_user_path %></div>
+<div><%= link_to "Delete Account", delete_user_path(@user), :data => {:confirm => "Are you sure?"}, method: :delete %></div>
