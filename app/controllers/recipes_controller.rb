@@ -16,9 +16,8 @@ class RecipesController < ApplicationController
           if recipe[search_field].downcase.include? query.downcase
             @recipes << recipe
           end
-        else
-          search_field_2 = params[:search]
-          if recipe.search_field_2.downcase.include? query.downcase
+        elsif params[:search] == "restaurant"
+          if recipe.restaurant.name.downcase.include? query.downcase
             @recipes << recipe
           end
         end
