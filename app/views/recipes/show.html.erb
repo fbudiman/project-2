@@ -27,7 +27,7 @@
 <br>
 <% if current_user %>
 <br>
-<%= form_for @new_comment do |f| %>
+<%= form_for @comment do |f| %>
 <div>
 <%= f.label :comment %>
 <%= f.text_area :comment %>
@@ -49,5 +49,6 @@
 <div><%= link_to "Recipes List", recipes_path %></div>
 <br>
 <br>
+<%= @recipe.comments.length %> COMMENTS:
 
 <%= render :partial => 'comment', :collection => @recipe.comments %>
