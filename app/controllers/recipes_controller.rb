@@ -101,8 +101,13 @@ class RecipesController < ApplicationController
 
     @recipe.likes.create(user_id: current_user.id)
     redirect_to recipe_path(@recipe)
+  end
 
+  def unlike
+    @recipe = Recipe.find(params[:id])
 
+    @recipe.likes.where(user_id: current_user.id).each { |like| like.destroy }
+    redirect_to recipe_path(@recipe)
   end
 
   private
@@ -112,3 +117,5 @@ class RecipesController < ApplicationController
   end
 
 end
+
+
