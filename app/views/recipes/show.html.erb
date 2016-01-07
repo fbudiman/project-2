@@ -17,12 +17,12 @@
 <div><%= @recipe.title %></div>
 <div><%= @recipe.body %></div>
 
+<% if current_user %>
 <div>
 <%= pluralize(@recipe.likes.count, "like") %>
 <%= button_to "Like", like_recipe_path, method: :post %>
 </div>
 
-<% if current_user %>
   <div><%= link_to "Edit Recipe", edit_recipe_path %></div>
   <div><%= link_to "Delete Recipe", recipe_path, method: :delete %></div>
 <% end %>
