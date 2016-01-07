@@ -27,8 +27,6 @@
 
 <div>
 
-
-
 <%= pluralize(@recipe.likes.count, "like") %>
 
 
@@ -40,12 +38,12 @@
 
   <% if @valid %>
 
-        <% if @recipe.likes == [] || @user_like != current_user.id %>
+    <% if @recipe.likes == [] || @user_like != current_user.id %>
 
-          <%= button_to "Like", like_recipe_path, method: :post %>
-          <% @valid = false %>
+      <%= button_to "Like", like_recipe_path, method: :post %>
+      <% @valid = false %>
 
-        <% end %>
+    <% end %>
 
     <% for like in @recipe.likes %>
 
@@ -57,6 +55,7 @@
           <% @valid = true %>
 
         <% end %>
+
     <% end %>
 
   <% end %>
