@@ -32,6 +32,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @user = User.new
     @comment = Comment.new(:recipe => @recipe)
+    @valid = true
   end
 
   def edit

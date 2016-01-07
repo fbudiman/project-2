@@ -1,3 +1,11 @@
+<% content_for :for_head do %>
+<script>
+
+
+</script>
+<% end %>
+
+
 <p>RECIPE</p>
 <p>RECIPE</p>
 <p>RECIPE</p>
@@ -18,18 +26,43 @@
 <div><%= @recipe.body %></div>
 
 <div>
+
+
 <%= pluralize(@recipe.likes.count, "like") %>
 
 
+<% for like in @recipe.likes %>
+<% @user_like = like.user_id %>
+<% end %>
+
 <% if current_user %>
 
-      <%= button_to "Like", like_recipe_path, method: :post %>
+  <% if @valid %>
 
-      <%= button_to "Unlike", unlike_recipe_path, method: :delete %>
+        <% if @recipe.likes == [] || @user_like != current_user.id %>
 
+          <%= button_to "Like", like_recipe_path, method: :post %>
+          <% @valid = false %>
+
+        <% end %>
+
+    <% for like in @recipe.likes %>
+
+      <% @user_unlike = like.user_id %>
+
+        <% if @user_unlike == current_user.id %>
+
+          <%= button_to "Unlike", unlike_recipe_path, method: :delete %>
+          <% @valid = true %>
+
+        <% end %>
+    <% end %>
+
+  <% end %>
 
   <div><%= link_to "Edit Recipe", edit_recipe_path %></div>
   <div><%= link_to "Delete Recipe", recipe_path, method: :delete %></div>
+
 
 </div>
 <% end %>
