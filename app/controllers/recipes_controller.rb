@@ -34,9 +34,11 @@ class RecipesController < ApplicationController
     @comment = Comment.new(:recipe => @recipe)
     @valid = false
 
-    @recipe.likes.each do |like|
-      if like.user_id == current_user.id
-        @valid = true
+    if current_user
+      @recipe.likes.each do |like|
+        if like.user_id == current_user.id
+          @valid = true
+        end
       end
     end
 
