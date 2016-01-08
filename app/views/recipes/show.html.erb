@@ -1,61 +1,54 @@
 <div class="container">
   <div class="spacer">
-    <div><%= @recipe.title %></div>
-    <div><%= @recipe.body %></div>
+    <div class="background-style">
+      <br>
+        <h3><%= @recipe.title %></h3>
+          <% if current_user %>
 
-    <div>
+              <%= link_to "Edit Recipe", edit_recipe_path %> |
+              <%= link_to "Delete Recipe", recipe_path, method: :delete %> |
+              [<%= pluralize(@recipe.likes.count, "like") %>]
 
-    <%= pluralize(@recipe.likes.count, "like") %>
+            <% if !@valid %>
 
+                <%= button_to "Like", like_recipe_path, method: :post, class: 'btn btn-danger btn-xs' %>
 
-    <% if current_user %>
+            <% else %>
 
-      <% if !@valid %>
+                <%= button_to "Unlike", unlike_recipe_path, method: :delete, class: 'btn btn-danger btn-xs' %>
 
-          <%= button_to "Like", like_recipe_path, method: :post %>
+            <% end %>
 
-      <% else %>
+          <% end %>
+          <br>
+          <br>
+            <div style="white-space: pre-wrap;"><%= @recipe.body %></div>
+          <br>
+            <%= link_to "Back to Restaurant", restaurant_path(@recipe.restaurant_id) %> |
+            <%= link_to "Recipes List", recipes_path %>
+            <br>
+            <% if current_user %>
+            <br>
+            <%= form_for @comment do |f| %>
+              <div>
+              <%= f.label :comment, class: 'control-label' %>
+              <center><%= f.text_area :comment, class: 'form-control', id: 'comment-form' %></center>
+              </div>
+              <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+              <%= f.hidden_field :user_id, :value => current_user.id %>
+              <br>
+              <%= f.submit "Submit", class: 'btn btn-danger' %>
+              <% end %>
 
-          <%= button_to "Unlike", unlike_recipe_path, method: :delete %>
-
-      <% end %>
-
-
-      <div><%= link_to "Edit Recipe", edit_recipe_path %></div>
-      <div><%= link_to "Delete Recipe", recipe_path, method: :delete %></div>
-
-
+            <% end %>
+          <br>
+          <br>
+          <br>
     </div>
-    <% end %>
-
-    <br>
-    <br>
-    <% if current_user %>
-    <br>
-    <%= form_for @comment do |f| %>
-    <div>
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
-    </div>
-    <div>
-    <%= f.hidden_field :recipe_id, :value => @recipe.id %>
-    </div>
-    <div>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    </div>
-    <%= f.submit %>
-    <% end %>
-    <% end %>
-
-    <br>
-    <br>
-    <br>
-    <div><%= link_to "Back to Restaurant", restaurant_path(@recipe.restaurant_id) %></div>
-    <div><%= link_to "Recipes List", recipes_path %></div>
-    <br>
-    <br>
-    <%= pluralize(@recipe.comments.length, "Comment") %>:
-
-    <%= render :partial => 'comment', :collection => @recipe.comments %>
+      <br>
+      <span class="white-text"><%= pluralize(@recipe.comments.length, "Comment") %>:</span>
+      <br>
+      <br>
+      <%= render :partial => 'comment', :collection => @recipe.comments %>
   </div>
 </div>

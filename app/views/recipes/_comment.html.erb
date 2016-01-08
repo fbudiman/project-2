@@ -1,6 +1,10 @@
-<div class="comment">
-  <i><%=h comment.user.name %> says:</i><br />
-  <%= simple_format h(comment.comment) %>
-  <%= link_to 'Delete Comment', [comment, @recipe],
-    :method => :delete if current_user %>
-</div>
+<center><div class="comment">
+  <div class="background-style">
+    <strong><%=h comment.user.name %> says:</strong>
+    <br>
+    <%= simple_format h(comment.comment) %>
+    <%= link_to 'Delete Comment', [comment, @recipe],
+      :method => :delete if current_user %>
+  </div>
+</div></center>
+<br>
