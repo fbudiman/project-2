@@ -89,24 +89,24 @@
           <center><h3 class="modal-title" id="myModalLabel">RecipeIt</h3></center>
         </div>
         <div class="modal-body">
-           <center><h4>Create An Account</h4></center>
+           <center><h4>Create An Account</h4><h6>* = Required</h6></center>
             <div class="row">
               <div class="col-xs-6 col-xs-offset-3">
                 <%= form_for @user, url: create_user_path do |f| %>
 
-                  <%= f.text_field :name, :placeholder => "Name", class: 'form-control' %>
+                  <%= f.text_field :name, :placeholder => "Name*", class: 'form-control' %>
                   <br>
 
                   <%= f.text_field :profile_pic_url, :value => "", :placeholder => "Profile Pic URL", class: 'form-control' %>
                   <br>
 
-                  <%= f.email_field :email, :placeholder => "Email", class: 'form-control' %>
+                  <%= f.email_field :email, :placeholder => "Email*", class: 'form-control' %>
                   <br>
 
-                  <%= f.password_field :password, :placeholder => "Password", class: 'form-control' %>
+                  <%= f.password_field :password, :placeholder => "Password*", class: 'form-control' %>
                   <br>
 
-                  <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", class: 'form-control' %>
+                  <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation*", class: 'form-control' %>
                   <br>
 
 

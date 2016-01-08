@@ -29,7 +29,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       redirect_to user_path(@user)
     else
-      render :edit
+      flash[:error] = "Please complete the required fields with correct information."
+      redirect_to edit_user_path(@user)
     end
   end
 
