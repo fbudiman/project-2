@@ -1,13 +1,25 @@
 <div class="container">
   <div class="spacer">
-    <% if current_user %>
-    <%= link_to "Add New Restaurant", new_restaurant_path %>
-    <% end %>
-
-      <% @restaurants.each do |restaurant| %>
-    <div>
-      <%= link_to restaurant.name, restaurant_path(restaurant) %>, <%= restaurant.location %>
+    <div class="centers">
+      <% if current_user %>
+        <%= button_to "Add New Restaurant", new_restaurant_path, :method => :get, class: 'btn btn-danger btn-md' %>
+      <% end %>
+      <br>
+      <br>
+      <center><div class="background-style" id="restaurant-table">
+        <table class="table table-striped" id="restaurant-table">
+          <tr>
+            <th class="col-xs-6">Restaurant</th>
+            <th class="col-xs-6">Location</th>
+          </tr>
+          <% @restaurants.each do |restaurant| %>
+          <tr>
+            <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+            <td><%= restaurant.location %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div></center>
     </div>
-    <% end %>
   </div>
 </div>

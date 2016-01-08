@@ -1,14 +1,25 @@
 <div class="container">
   <div class="spacer">
-    <%= @restaurant.name %>
-    <br>
+    <div class="background-style">
+      <div class="padding">
+        <br>
+          <h3><%= @restaurant.name %></h3>
+          <h4>[<%= @restaurant.recipes.length %> Recipes]</h5>
 
-      <% @recipes.each do |recipe| %>
-      <div> <%= link_to recipe.title, recipe_path(recipe) %> </div>
-      <% end %>
+          <% @recipes.each do |recipe| %>
+          <div> <%= link_to recipe.title, recipe_path(recipe) %> </div>
+          <% end %>
 
-    <div>
-    <%= link_to "Back to Restaurant List", restaurants_path %>
+        <br>
+        <br>
+
+        <div>
+          <%= link_to "Back to Restaurant List", restaurants_path %> |
+          <%= link_to "Recipes List", recipes_path %>
+        <br>
+        <br>
+        </div>
+      </div>
     </div>
   </div>
 </div>
