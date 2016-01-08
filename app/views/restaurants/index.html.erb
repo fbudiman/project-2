@@ -1,36 +1,13 @@
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
+<div class="container">
+  <div class="spacer">
+    <% if current_user %>
+    <%= link_to "Add New Restaurant", new_restaurant_path %>
+    <% end %>
 
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-<p>RESTAURANTS</p>
-
-<% if current_user %>
-<%= link_to "Add New Restaurant", new_restaurant_path %>
-<% end %>
-
-  <% @restaurants.each do |restaurant| %>
-<div>
-  <%= link_to restaurant.name, restaurant_path(restaurant) %>, <%= restaurant.location %>
+      <% @restaurants.each do |restaurant| %>
+    <div>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>, <%= restaurant.location %>
+    </div>
+    <% end %>
+  </div>
 </div>
-  <% end %>
-

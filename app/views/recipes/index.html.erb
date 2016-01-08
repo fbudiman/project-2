@@ -1,23 +1,11 @@
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-<p>RECIPE</p>
-
-<% @recipes.each do |recipe| %>
-<div>
-<%= link_to recipe.title, recipe_path(recipe) %>, <%= recipe.restaurant.name %>
+<div class="container">
+  <div class="spacer">
+    <% @recipes.each do |recipe| %>
+      <div class="box">
+        <%= link_to recipe.title, recipe_path(recipe) %>, <%= recipe.restaurant.name %>
+      </div>
+    <% end %>
+    <br>
+    <%= link_to "Add a New Recipe", new_recipe_path %>
+  </div>
 </div>
-<% end %>
-<br>
-<%= link_to "Add a New Recipe", new_recipe_path %>

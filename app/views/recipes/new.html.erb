@@ -1,34 +1,28 @@
-<p>RECIPES</p>
-<p>RECIPES</p>
-<p>RECIPES</p>
-<p>RECIPES</p>
-<p>RECIPES</p>
-<p>RECIPES</p>
-<p>RECIPES</p>
-<p>RECIPES</p>
-<p>RECIPES</p>
+<div class="container">
+  <div class="spacer">
 
-  ADD A NEW RECIPE:
+    ADD A NEW RECIPE:
 
-  <%= form_for @recipe do |f| %>
+    <%= form_for @recipe do |f| %>
 
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :body, "Recipe Ingredients & Directions" %>
+      <%= f.text_area :body %>
+    </div>
+    <div>
+      <%= f.label :restaurant_id, "Restaurant" %>
+      <%= f.select(:restaurant_id, options_for_select(@restaurants.collect { |restaurant| [restaurant.name, restaurant.id] }.sort)) %>
+    </div>
+    <div>
+      <%= f.hidden_field :user_id, :value => @user_id %>
+    </div>
+
+      <%= f.submit %>
+    <% end %>
+
   </div>
-  <div>
-    <%= f.label :body, "Recipe Ingredients & Directions" %>
-    <%= f.text_area :body %>
-  </div>
-  <div>
-    <%= f.label :restaurant_id, "Restaurant" %>
-    <%= f.select(:restaurant_id, options_for_select(@restaurants.collect { |restaurant| [restaurant.name, restaurant.id] }.sort)) %>
-  </div>
-  <div>
-    <%= f.hidden_field :user_id, :value => @user_id %>
-  </div>
-
-    <%= f.submit %>
-<% end %>
-
-
+</div>

@@ -12,39 +12,41 @@
 
 
 <header>
-  <h1 id="main-header"><%= link_to "RecipeIt", users_path %></h1>
+<div class="container">
+    <h1 id="main-header"><%= link_to "RecipeIt", users_path %></h1>
 
 
-  <div id="search-bar">
-    <%= form_tag('/recipes', method:"get") do %>
-    <strong>Search By</strong>
-    <%= select_tag "search", options_for_select([["Restaurant", "restaurant"], ["Recipe", "title"]]) %>
-    <%= text_field_tag :query %>
-    <%= submit_tag "Search" %>
-    <% end %>
-  </div>
+    <div id="search-bar">
+      <%= form_tag('/recipes', method:"get") do %>
+      <strong>Search By</strong>
+      <%= select_tag "search", options_for_select([["Restaurant", "restaurant"], ["Recipe", "title"]]) %>
+      <%= text_field_tag :query %>
+      <%= submit_tag "Search" %>
+      <% end %>
+    </div>
 
 
-  <div id="user-header">
+    <div id="user-header">
 
-    <span id="alert">
-    <% flash.each do |key,value| %>
-        <div class="<%= key %>" > <%= value %></div>
-    <% end %>
-    </span>
+      <span id="alert">
+      <% flash.each do |key,value| %>
+          <div class="<%= key %>" > <%= value %></div>
+      <% end %>
+      </span>
 
-    <% if !current_user %>
+      <% if !current_user %>
 
-      <div class="user-header"><a href="#" data-toggle="modal" data-target="#myModal">Login</a></div> |
-      <div class="user-header"><a href="#" data-toggle="modal" data-target="#otherModal">Create An Account</a></div>
+        <div class="user-header"><a href="#" data-toggle="modal" data-target="#myModal">Login</a></div> |
+        <div class="user-header"><a href="#" data-toggle="modal" data-target="#otherModal">Create An Account</a></div>
 
-    <% else %>
+      <% else %>
 
-        <div class="user-header"><%= link_to "Your Account", user_path(current_user) %></div> |
-        <div class="user-header"><%= link_to "Logout", destroy_session_path %></div>
-    <% end %>
+          <div class="user-header"><%= link_to "Your Account", user_path(current_user) %></div> |
+          <div class="user-header"><%= link_to "Logout", destroy_session_path %></div>
+      <% end %>
 
-  </div>
+    </div>
+</div>
 
 
 </header>
