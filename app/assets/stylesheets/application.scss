@@ -2,8 +2,17 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Rock+Salt);
 
+body {
+  background-image: url("background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: Georgia;
+  font-size: 12pt;
+}
+
 header {
-  background-color: black;
+  background-color: rgba(255,255,255,0.7);
   padding: 15px;
   width: 100%;
   position: fixed;
@@ -12,10 +21,16 @@ header {
 #main-header {
   text-align: center;
   font-family: 'Rock Salt', cursive;
+  color: #990000;
+}
+
+a {
+  color: #990000;
 }
 
 a:hover {
   text-decoration: none;
+  color: #660000;
 }
 
 .user-header {
@@ -41,4 +56,45 @@ a:hover {
 .spacer {
   margin-top: 150px;
   text-align: center;
+}
+
+table, th, tr {
+  text-align: left;
+}
+
+.background-style {
+  background-color: rgba(255,255,255,0.8);
+}
+
+.centers {
+  text-align: center;
+}
+.white-link > a {
+  color: white;
+}
+
+.white-link > a:hover {
+  color: #FFCC99;
+}
+
+.black-opaque-background {
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid black;
+  padding-top: 15px;
+  padding-right: 100px;
+  padding-left: 100px;
+  border-radius: 30px;
+}
+.white-text {
+  color: white;
+}
+
+.black-opaque-background-2 {
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid black;
+  padding-top: 15px;
+  padding-right: 50px;
+  padding-left: 50px;
+  width: 300px;
+  border-radius: 30px;
 }

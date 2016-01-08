@@ -1,11 +1,29 @@
 <div class="container">
   <div class="spacer">
-    <% @recipes.each do |recipe| %>
-      <div class="box">
-        <%= link_to recipe.title, recipe_path(recipe) %>, <%= recipe.restaurant.name %>
-      </div>
-    <% end %>
-    <br>
-    <%= link_to "Add a New Recipe", new_recipe_path %>
+    <div class="centers">
+      <span class="white-link"><%= link_to "Add a New Recipe", new_recipe_path %></span>
+        <br>
+        <br>
+        <div class="background-style">
+          <table class="table table-striped">
+            <tr>
+              <th class="col-md-4">Recipe</th>
+              <th class="col-md-3">Restaurant</th>
+              <th class="col-md-3">Restaurant Location</th>
+              <th class="col-md-1">Likes</th>
+              <th class="col-md-1">Comments</th>
+            </tr>
+          <% @recipes.each do |recipe| %>
+            <tr>
+              <td><%= link_to recipe.title, recipe_path(recipe) %></td>
+              <td><%= recipe.restaurant.name %></td>
+              <td><%= recipe.restaurant.location %></td>
+              <td><%= recipe.likes.length %></td>
+              <td><%= recipe.comments.length %></td>
+            </tr>
+          <% end %>
+        </table>
+        </div>
+    </div>
   </div>
 </div>

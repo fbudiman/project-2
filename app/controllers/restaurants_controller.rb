@@ -21,6 +21,7 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
+    @user = User.new
 
     if !current_user
       flash[:error] = "You must be signed in to add a restaurant."

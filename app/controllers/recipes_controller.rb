@@ -70,6 +70,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @restaurants = Restaurant.all
+    @user = User.new
 
     if !current_user
       flash[:error] = "You must be signed in to add a recipe."
