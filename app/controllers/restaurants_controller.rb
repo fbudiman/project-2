@@ -31,13 +31,22 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurants = Restaurant.all
+    @user = User.new
+
+    @restaurants.each do |restaurant|
+      if restaurant.name == @restaurant.name && restaurant.location == @restaurant.location
+        flash[:error] = "This restaurant already exists in the database."
+        redirect_to restaurants_path and return
+      end
+    end
 
     if @restaurant.save
       flash[:success] = "You have added a new restaurant."
-      redirect_to restaurant_path(@restaurant)
+      return redirect_to restaurant_path(@restaurant)
     else
       flash[:error] = "Your restaurant could not be added."
-      redirect_to new_restaurant_path
+      return redirect_to new_restaurant_path
     end
   end
 

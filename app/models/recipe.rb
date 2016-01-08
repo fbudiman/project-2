@@ -4,4 +4,7 @@ class Recipe < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :likes, :dependent => :destroy
 
+  validates_presence_of :title
+  validates_presence_of :restaurant_id
+  validates_presence_of :body
 end
