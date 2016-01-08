@@ -7,7 +7,7 @@
           <h4>[<%= @restaurant.recipes.length %> Recipes]</h5>
 
           <% @recipes.each do |recipe| %>
-          <div> <%= link_to recipe.title, recipe_path(recipe) %> </div>
+          <div><%= link_to recipe.title, recipe_path(recipe) %>, Submitted by <%= recipe.user.name %> </div>
           <% end %>
 
         <br>

@@ -4,6 +4,8 @@
       <div class="padding">
         <br>
           <h3><%= @recipe.title %></h3>
+            Submitted by <%= @recipe.user.name %>
+            <br>
             <% if current_user %>
 
                 <%= link_to "Edit Recipe", edit_recipe_path %> |
