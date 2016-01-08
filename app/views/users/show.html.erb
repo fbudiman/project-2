@@ -1,18 +1,32 @@
 <div class="container">
   <div class="spacer">
-    <p>NAME: <%= @user.name %></p>
-    <p>EMAIL: <%= @user.email %></p>
-    <p># OF RECIPES: <%= @user.recipes.length %>
-    <% @user.recipes.each do |recipe| %> (<%= recipe.title %>)</p>
-    <% end %>
-    <p>PROFILE PIC:
-    <% if @user.profile_pic_url != "" %>
-    <%= image_tag @user.profile_pic_url %></p>
-    <% else %> <%= image_tag ("default_image.png") %>
-    <% end %>
-
+    <div class="background-style">
+      <div class="padding">
+      <br>
+        <h3>Account Summary</h3>
+          <% if @user.profile_pic_url != "" %>
+            <%= image_tag @user.profile_pic_url, class: 'profile-pic' %>
+          <% else %>
+            <%= image_tag ("default_image.png"), class: 'profile-pic' %>
+          <% end %>
+            <br>
+            <br>
+          <div><%= @user.name %> | <%= @user.email %></div>
+          <br>
+          <div># Of Recipes Posted: <%= @user.recipes.length %>
+            <br>
+              <%= select_tag "search", options_from_collection_for_select(@user.recipes, 'id', 'title') %>
+              <br>
+              <br>
+          </div>
 
     <div><%= link_to "Edit User Info", edit_user_path %></div>
     <div><%= link_to "Delete Account", delete_user_path(@user), :data => {:confirm => "Are you sure?"}, method: :delete %></div>
+        <br>
+        <br>
+      </div>
+    </div>
   </div>
 </div>
+<br>
+<br>
