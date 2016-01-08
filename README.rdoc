@@ -1,10 +1,14 @@
 Project 2 - Ruby on Rails
 
+
 This project is called RecipeIt, which is essentially an app that allows users to post recipes. In particular, the recipes are recreations of popular restaurant menu items. A visitor may use the app to look for recipes by using recipe titles or restaurants, but as a visitor they are limited to viewing pages only. As a user, one may post, comment, like, add recipes and new restaurants to the app in addition to viewing them.
 
 Technologies used for this project is Ruby, CSS, Bootstrap, and HTML. A majority of this project was done through Ruby as the basis for logic, with CSS and Bootstrap to style, and HTML for the front end portion.
 
 As far as I can tell, there are currently no unsolved problems in the app itself. However, there are many elements that I wanted to implement but did not have sufficient time for. To improve this app, I would add an admin log-in, to be able to control the restaurants created by users so that they cannot add fictional or non-existent restaurants to the database. I would also add a rating system in order to improve the user experience, among many others. I would have also liked to add a user index page, so that users can browse the app through the users they like. I would also like to implement a sort method for the restaurant and recipe models.
 
-Trello Board: https://trello.com/b/d9Z2ue8E/project-2
 Wireframes: app/assets/images/wireframe1.JPG, app/assets/images/wireframe2.JPG, app/assets/images/wireframe3.JPG
+
+Trello Board: https://trello.com/b/d9Z2ue8E/project-2
+
+Heroku: https://recipe-it.herokuapp.com/
