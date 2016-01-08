@@ -9,13 +9,15 @@
       <center><div class="background-style" id="restaurant-table">
         <table class="table table-striped" id="restaurant-table">
           <tr>
-            <th class="col-xs-6">Restaurant</th>
-            <th class="col-xs-6">Location</th>
+            <th class="col-xs-5">Restaurant</th>
+            <th class="col-xs-5">Location</th>
+            <th class="col-xs-2">Recipes</th>
           </tr>
           <% @restaurants.each do |restaurant| %>
           <tr>
             <td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
             <td><%= restaurant.location %></td>
+            <td><%= restaurant.recipes.length %></td>
           </tr>
           <% end %>
         </table>
