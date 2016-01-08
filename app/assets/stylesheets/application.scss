@@ -12,7 +12,7 @@ body {
 }
 
 header {
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(0,0,0,0.8);
   padding: 15px;
   width: 100%;
   position: fixed;
@@ -24,7 +24,7 @@ header {
   color: #990000;
 }
 
-a {
+a, .red-font {
   color: #990000;
 }
 
@@ -64,6 +64,7 @@ table, th, tr {
 
 .background-style {
   background-color: rgba(255,255,255,0.8);
+  border-radius: 20px;
 }
 
 .centers {
@@ -97,4 +98,17 @@ table, th, tr {
   padding-left: 50px;
   width: 300px;
   border-radius: 30px;
+}
+
+.padding {
+  padding-right: 60px;
+  padding-left: 60px
+}
+
+.form-control {
+  width: 750px;
+}
+
+#recipe-form {
+  height: 275px;
 }

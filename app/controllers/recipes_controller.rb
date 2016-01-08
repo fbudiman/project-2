@@ -47,6 +47,7 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @restaurants = Restaurant.all
+    @user = User.new
 
     if !current_user
       flash[:error] = "You must be signed in to edit a recipe."

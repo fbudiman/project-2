@@ -18,10 +18,10 @@
 
     <div id="search-bar">
       <%= form_tag('/recipes', method:"get") do %>
-      <strong>Search By</strong>
+      <strong class="red-font">Search By</strong>
       <%= select_tag "search", options_for_select([["Restaurant", "restaurant"], ["Recipe", "title"]]) %>
       <%= text_field_tag :query %>
-      <%= submit_tag "Search", class: 'btn-warning' %>
+      <%= submit_tag "Search", class: 'btn btn-danger btn-sm' %>
       <% end %>
     </div>
 
