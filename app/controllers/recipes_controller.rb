@@ -32,7 +32,14 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @user = User.new
     @comment = Comment.new(:recipe => @recipe)
-    @valid = true
+    @valid = false
+
+    @recipe.likes.each do |like|
+      if like.user_id == current_user.id
+        @valid = true
+      end
+    end
+
   end
 
   def edit

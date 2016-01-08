@@ -2,8 +2,6 @@
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Rock+Salt);
 
-//change_column(:users, :profile_pic_url, :string, { default: "default_image.png" })
-
 header {
   background-color: black;
   padding: 15px;
@@ -41,3 +39,4 @@ a:hover {
 #alert {
   color: red;
 }
+

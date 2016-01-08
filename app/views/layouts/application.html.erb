@@ -5,12 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-<% if content_for? :for_head %>
-  <%= yield :for_head %>
-<% end %>
 
 </head>
 <body>
+
+
 
 <header>
   <h1 id="main-header"><%= link_to "RecipeIt", users_path %></h1>
@@ -26,7 +25,6 @@
   </div>
 
 
-
   <div id="user-header">
 
     <span id="alert">
@@ -37,22 +35,7 @@
 
     <% if !current_user %>
 
-      <%= form_for @user, url: create_session_path do |f| %>
-
-
-      <div class="user-header">
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </div>
-      <div class="user-header">
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-      </div>
-        <%= f.submit "Login" %>
-
-
-      <% end %>
-
+      <a href="#" data-toggle="modal" data-target="#myModal">Login</a> |
       <div class="user-header"><%= link_to "Create An Account", new_user_path %></div>
 
     <% else %>
@@ -63,9 +46,40 @@
 
   </div>
 
+
 </header>
 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel">RecipeIt</h3>
+        </div>
+        <div class="modal-body">
+           <h4>Log in</h4>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <%= form_for @user, url: create_session_path do |f| %>
+                  <%= f.email_field :email, :placeholder => "Email", class: 'form-control' %>
+                  <%= f.password_field :password, :placeholder => "Password", class: 'form-control' %>
+                  <%= f.submit "Log in", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 <%= yield %>
+
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 </body>
