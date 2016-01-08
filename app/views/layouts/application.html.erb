@@ -35,8 +35,8 @@
 
     <% if !current_user %>
 
-      <a href="#" data-toggle="modal" data-target="#myModal">Login</a> |
-      <div class="user-header"><%= link_to "Create An Account", new_user_path %></div>
+      <div class="user-header"><a href="#" data-toggle="modal" data-target="#myModal">Login</a></div> |
+      <div class="user-header"><a href="#" data-toggle="modal" data-target="#otherModal">Create An Account</a></div>
 
     <% else %>
 
@@ -74,6 +74,43 @@
       </div>
     </div>
   </div>
+
+<div class="modal fade" id="otherModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel">RecipeIt</h3>
+        </div>
+        <div class="modal-body">
+           <h4>Create An Account</h4>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <%= form_for @user, url: create_user_path do |f| %>
+
+                  <%= f.text_field :name, :placeholder => "Name", class: 'form-control' %>
+
+                  <%= f.text_field :profile_pic_url, :value => "", :placeholder => "Profile Pic URL", class: 'form-control' %>
+
+                  <%= f.email_field :email, :placeholder => "Email", class: 'form-control' %>
+
+                  <%= f.password_field :password, :placeholder => "Password", class: 'form-control' %>
+
+                  <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", class: 'form-control' %>
+
+
+                  <%= f.submit "Create User", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 

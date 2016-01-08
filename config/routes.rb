@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   get 'comments/' => 'comments#index', as: :comments
 
   post 'sessions/new' => 'sessions#create', as: :create_session
-  post '/' => 'users#create'
+  post '/' => 'users#create', as: :create_user
   post 'restaurants/' => 'restaurants#create'
   post 'recipes/' => 'recipes#create'
   post 'comments/' => 'comments#create'
